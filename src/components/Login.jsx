@@ -22,114 +22,86 @@ const Login = () => {
       console.log(message);
 
       if (role === "student") {
-        history.push(`/StudentDashboard/${username}`);
+        history.push(`/SideStudent/${username}`);
         setLoggedIn(true);
       } else if (role === "enseignant") {
         history.push("/EnseignantDashboard");
         setLoggedIn(true);
       } else if (role === "admin") {
-        history.push("/AdminDashboard");
+        history.push("/SideAdmin");
         setLoggedIn(true);
       }
     } catch (error) {
       setErrorMessage("Login failed. Please check your credentials.");
     }
   };
+
   return (
-    <div>
-      <div
-        className="container mt-5"
-        style={{
-          backgroundColor: "#f9f9f9",
-          padding: "20px",
-          borderRadius: "5px",
-        }}
-      >
-        {loggedIn ? (
-          <div>
-            <p>Welcome to the student or teacher space!</p>
+    <>
+      {" "}
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <div className="container mt-5 d-flex justify-content-center">
+        <div className="card col-md-8 no-hover">
+          <div className="row g-0">
+            <div className="col-md-6">
+              <img
+                src="./unnamed.png"
+                className="img-fluid rounded-start"
+                alt="Placeholder"
+              />
+            </div>
+            <div className="col-md-6">
+              <div className="card-body">
+                <h5 class="card-title">Login Space</h5>
+
+                {loggedIn ? (
+                  <div>
+                    <p>Welcome to the student or teacher space!</p>
+                  </div>
+                ) : (
+                  <form onSubmit={handleLogin}>
+                    <div className="mb-3">
+                      <label htmlFor="username" className="form-label">
+                        Username:
+                      </label>
+                      <input
+                        type="text"
+                        className="form-control"
+                        id="username"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                      />
+                    </div>
+                    <div className="mb-3">
+                      <label htmlFor="password" className="form-label">
+                        Password:
+                      </label>
+                      <input
+                        type="password"
+                        className="form-control"
+                        id="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                      />
+                    </div>
+                    <button type="submit" className="btn btn-primary">
+                      Login
+                    </button>
+                    {errorMessage && (
+                      <p className="mt-3 text-danger">{errorMessage}</p>
+                    )}
+                  </form>
+                )}
+              </div>
+            </div>
           </div>
-        ) : (
-          <form
-            onSubmit={handleLogin}
-            style={{ maxWidth: "300px", margin: "auto" }}
-          >
-            <div className="mb-3">
-              <label
-                htmlFor="username"
-                className="form-label"
-                style={{ fontWeight: "bold" }}
-              >
-                Username:
-              </label>
-              <input
-                type="text"
-                className="form-control"
-                id="username"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                style={{
-                  borderRadius: "3px",
-                  border: "1px solid #ccc",
-                  padding: "8px",
-                  width: "100%",
-                  marginTop: "5px",
-                }}
-              />
-            </div>
-            <div className="mb-3">
-              <label
-                htmlFor="password"
-                className="form-label"
-                style={{ fontWeight: "bold" }}
-              >
-                Password:
-              </label>
-              <input
-                type="password"
-                className="form-control"
-                id="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                style={{
-                  borderRadius: "3px",
-                  border: "1px solid #ccc",
-                  padding: "8px",
-                  width: "100%",
-                  marginTop: "5px",
-                }}
-              />
-            </div>
-            <button
-              type="submit"
-              className="btn btn-primary"
-              style={{
-                width: "100%",
-                padding: "10px",
-                borderRadius: "3px",
-                backgroundColor: "#007bff",
-                border: "none",
-              }}
-            >
-              Login
-            </button>
-            {errorMessage && (
-              <p className="mt-3" style={{ color: "red" }}>
-                {errorMessage}
-              </p>
-            )}
-            <br />
-            <br />
-            <a
-              href="http://localhost:3000/ForgetPassword"
-              style={{ textDecoration: "underline", textAlign: "right" }}
-            >
-              forget password
-            </a>
-          </form>
-        )}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

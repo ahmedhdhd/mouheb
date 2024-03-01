@@ -1,0 +1,28 @@
+.posts {
+  flex: 9;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.container {
+  padding: 5%;
+}
+.title {
+  border-bottom: 1px solid #dfe2e6;
+  color: #00529f;
+  font-size: 30px;
+  line-height: 45px;
+  margin-bottom: 25px;
+  position: relative;
+}
+
+.title::after {
+  background: none repeat scroll 0 0 #dfe2e6;
+  bottom: -4px;
+  content: "";
+  height: 4px;
+  left: 0;
+  position: absolute;
+  width: 105px;
+}

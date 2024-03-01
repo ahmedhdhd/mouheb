@@ -1,0 +1,53 @@
+ @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+/* .container{
+    height: 100x;
+} */
+
+h2{
+    text-align: center;
+    padding: 20px;
+}
+.slick-slide{
+    margin: 0 20px;
+    display: flex;
+    align-items: center;
+}
+.slick-slide img{
+    width: 100%;
+}
+.slick-slider{
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+}
+.slick-list{
+    position: relative;
+    display: block;
+    overflow: hidden;
+    height: 200px;
+    margin: 0;
+    padding: 0;
+}
+.slick-track{
+    position: relative;
+    top: 0;
+    left: 0;
+    display: block
+    
+}
+.slick-slide{
+    display: none;
+    float: left;
+    height: 100%;
+    min-height: 1px;
+}
+.slick-slide img{
+    display: block;
+} 
+ .slick-initialized .slick-slide{
+    display: block;
+ }
+ .slick-slide img{
+    width: 100%;
+    height: fit-content;
+}

@@ -45,96 +45,100 @@ const CreateUserForm = () => {
   };
 
   return (
-    <div
-      className="container mt-5"
-      style={{
-        backgroundColor: "#f9f9f9",
-        padding: "20px",
-        borderRadius: "5px",
-      }}
-    >
-      <form
-        onSubmit={handleSubmit}
-        style={{ maxWidth: "300px", margin: "auto" }}
-      >
-        <label>
-          Username:
-          <input
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-            style={{
-              borderRadius: "3px",
-              border: "1px solid #ccc",
-              padding: "8px",
-              width: "100%",
-              marginTop: "5px",
-            }}
-          />
-        </label>
-        <br />
-        <label>
-          Password:
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            style={{
-              borderRadius: "3px",
-              border: "1px solid #ccc",
-              padding: "8px",
-              width: "100%",
-              marginTop: "5px",
-            }}
-          />
-          <button type="button" onClick={generatePassword}>
-            Generate Password
-          </button>
-        </label>
-        <br />
-        <label>
-          Role:
-          <label>
-            <input
-              type="radio"
-              value="student"
-              checked={role === "student"}
-              onChange={() => setRole("student")}
-            />
-            Student
-          </label>
-          <label>
-            <input
-              type="radio"
-              value="teacher"
-              checked={role === "teacher"}
-              onChange={() => setRole("teacher")}
-            />
-            Teacher
-          </label>
-        </label>
-        <br />
-        <label>
-          Email:
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            style={{
-              borderRadius: "3px",
-              border: "1px solid #ccc",
-              padding: "8px",
-              width: "100%",
-              marginTop: "5px",
-            }}
-          />
-        </label>
-        <br />
-        <button type="submit">Create User</button>
-      </form>
+    <div className="container mt-5">
+      <div className="row justify-content-center">
+        <div className="col-md-6">
+          <div className="card">
+            <div className="card-header bg-primary text-light">
+              <h3 className="mb-0">Create User</h3>
+            </div>
+            <div className="card-body">
+              <form onSubmit={handleSubmit}>
+                <div className="mb-3">
+                  <label htmlFor="username" className="form-label">
+                    Username:
+                  </label>
+                  <input
+                    type="text"
+                    id="username"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    className="form-control"
+                    required
+                  />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="password" className="form-label">
+                    Password:
+                  </label>
+                  <div className="input-group">
+                    <input
+                      type="password"
+                      id="password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      className="form-control"
+                      required
+                    />
+                    <button
+                      type="button"
+                      className="btn btn-outline-secondary"
+                      onClick={generatePassword}
+                    >
+                      Generate Password
+                    </button>
+                  </div>
+                </div>
+                <div className="mb-3">
+                  <label className="form-label">Role:</label>
+                  <div className="form-check">
+                    <input
+                      type="radio"
+                      id="student"
+                      value="student"
+                      checked={role === "student"}
+                      onChange={() => setRole("student")}
+                      className="form-check-input"
+                    />
+                    <label htmlFor="student" className="form-check-label">
+                      Student
+                    </label>
+                  </div>
+                  <div className="form-check">
+                    <input
+                      type="radio"
+                      id="teacher"
+                      value="teacher"
+                      checked={role === "teacher"}
+                      onChange={() => setRole("teacher")}
+                      className="form-check-input"
+                    />
+                    <label htmlFor="teacher" className="form-check-label">
+                      Teacher
+                    </label>
+                  </div>
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="email" className="form-label">
+                    Email:
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="form-control"
+                    required
+                  />
+                </div>
+                <button type="submit" className="btn btn-primary">
+                  Create User
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

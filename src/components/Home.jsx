@@ -1,6 +1,6 @@
 import "../App.css";
 import Navbar from "./NavBar";
-import Footer from "./Footer";
+import Foter from "./Footer";
 import Content from "./Content";
 import React, { useState } from "react";
 const Home = () => {
@@ -25,19 +25,8 @@ const Home = () => {
       <br />
       <br />
       <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
 
-      <Footer />
+      <Foter />
     </div>
   );
 };

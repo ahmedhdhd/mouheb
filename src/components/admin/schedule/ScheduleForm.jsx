@@ -53,8 +53,7 @@ const ScheduleForm = () => {
       >
         <div style={{ marginBottom: "20px" }}>
           <label htmlFor="className">Classe:</label>
-          <input
-            type="text"
+          <select
             id="className"
             name="className"
             value={schedule.className}
@@ -66,7 +65,11 @@ const ScheduleForm = () => {
               border: "1px solid #ccc",
               borderRadius: "4px",
             }}
-          />
+          >
+            <option value="IngInfo1TD1">IngInfo1TD1</option>
+            <option value="IngInfo1TD2">IngInfo1TD2</option>
+            <option value="IngInfo2TD1">IngInfo2TD1</option>
+          </select>
         </div>
         <div style={{ marginBottom: "20px" }}>
           <label htmlFor="dateSchedule">Date Schedule:</label>

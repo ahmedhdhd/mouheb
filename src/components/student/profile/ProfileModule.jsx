@@ -28,12 +28,11 @@ const ProfileModule = ({ username }) => {
   return (
     <div>
       {!student ? (
-        <ProfileForm username={username} onSave={handleSave} />
+        <ProfileForm username={username} />
       ) : (
         <Profile student={student} />
       )}
     </div>
   );
 };
-
 export default ProfileModule;

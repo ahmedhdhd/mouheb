@@ -77,6 +77,15 @@ const NavAdmin = ({ onItemClick }) => {
                 User List
               </a>
             </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="#"
+                onClick={() => handleItemClick("message")}
+              >
+                message{" "}
+              </a>
+            </li>
           </ul>
         </div>
       </div>

@@ -44,9 +44,7 @@ const NoteForm = () => {
           style={{ display: "flex", flexDirection: "column" }}
         >
           <div style={{ marginBottom: "20px" }}>
-            <input
-              type="text"
-              placeholder="Name"
+            <select
               value={name}
               onChange={(e) => setName(e.target.value)}
               style={{
@@ -56,7 +54,11 @@ const NoteForm = () => {
                 border: "1px solid #ccc",
                 borderRadius: "4px",
               }}
-            />
+            >
+              <option value="IngInfo1TD1">IngInfo1TD1</option>
+              <option value="IngInfo1TD2">IngInfo1TD2</option>
+              <option value="IngInfo2TD1">IngInfo2TD1</option>
+            </select>
           </div>
           <div>
             <input

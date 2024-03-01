@@ -1,16 +1,19 @@
 // Import Bootstrap CSS
 import "bootstrap/dist/css/bootstrap.min.css";
-
+import Footer from "../components1/Footer";
 import React from "react";
+import PartnerCarousel from "../components1/PartenerCarousel";
+import SliderImgs from "../components1/SliderImgs";
 
-const Footer = () => {
+const Foter = () => {
   return (
-    <footer className="bg-dark text-light text-center py-3">
-      <div className="container">
-        <p>&copy; 2024 ISIMM</p>
-      </div>
-    </footer>
+    <>
+      {" "}
+      <SliderImgs />
+      <PartnerCarousel />
+      <Footer />
+    </>
   );
 };
 
-export default Footer;
+export default Foter;

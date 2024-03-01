@@ -7,6 +7,8 @@ import AdminDashbord from './components/AdminDashbord';
 import Login from './components/Login';
 import AdminMessages from './components/admin/message.jsx/AdminMessages';
 import ForgetPassword from './components/admin/ForgetPassword';
+import Side from './components/admin/Side';
+import SideStudent from './components/student/Side';
 
 function App() {
   return ( 
@@ -20,9 +22,8 @@ function App() {
             <Route path='/login' component={Login}/>
             <Route path='/AdminMessages/:username' component={AdminMessages}/>
             <Route path='/ForgetPassword' component={ForgetPassword}/>
-
-            
-            
+            <Route path='/SideAdmin' component={Side}/>
+            <Route path='/SideStudent/:username' component={SideStudent}/>
 
         </Switch>
       </div>

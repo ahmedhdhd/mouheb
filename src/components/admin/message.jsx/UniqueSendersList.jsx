@@ -34,16 +34,29 @@ const UniqueSendersList = () => {
   return (
     <div>
       <h2>Unique Senders</h2>
-      <ul>
-        {uniqueSenders.map((senderId) => (
-          <li key={senderId}>
-            {senderId}{" "}
-            <button className="btn primary" onClick={() => go(senderId)}>
-              contact
-            </button>
-          </li>
-        ))}
-      </ul>
+      <table className="table">
+        <thead>
+          <tr>
+            <th>Name of User</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {uniqueSenders.map((senderId) => (
+            <tr key={senderId}>
+              <td>{senderId}</td>
+              <td>
+                <button
+                  className="btn btn-primary"
+                  onClick={() => go(senderId)}
+                >
+                  Contact
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };

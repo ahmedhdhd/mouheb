@@ -63,81 +63,85 @@ const ScheduleList = () => {
   };
 
   return (
-    <div className="container">
-      <h2>Schedule List</h2>
-      <div className="row">
-        {schedules.map((schedule) => (
-          <div key={schedule.id} className="col-md-4 mb-4">
-            <div className="card">
-              <div className="card-body">
-                <h5 className="card-title">Class Name: {schedule.className}</h5>
-                <p className="card-text">
-                  Date Schedule: {schedule.dateSchedule}
-                </p>
-                {schedule.imageSchedule && (
-                  <div>
-                    <strong>Image:</strong>
-                    <br />
-                    <img
-                      src={`data:image/jpeg;base64,${schedule.imageSchedule}`}
-                      alt="Schedule"
-                      className="card-img-top"
-                    />
-                  </div>
-                )}
-                <button
-                  onClick={() => handleUpdate(schedule)}
-                  className="btn btn-primary"
-                >
-                  Update
-                </button>
-                <button
-                  onClick={() => handleDelete(schedule.id)}
-                  className="btn btn-danger"
-                >
-                  Delete
-                </button>
-                {updateFormData.id === schedule.id && (
-                  <div>
-                    <input
-                      type="text"
-                      value={updateFormData.className}
-                      onChange={(e) =>
-                        setUpdateFormData({
-                          ...updateFormData,
-                          className: e.target.value,
-                        })
-                      }
-                      className="form-control mb-2"
-                    />
-                    <input
-                      type="text"
-                      value={updateFormData.dateSchedule}
-                      onChange={(e) =>
-                        setUpdateFormData({
-                          ...updateFormData,
-                          dateSchedule: e.target.value,
-                        })
-                      }
-                      className="form-control mb-2"
-                    />
-                    <input
-                      type="file"
-                      onChange={handleFileChange}
-                      className="form-control-file mb-2"
-                    />
-                    <button
-                      onClick={handleSubmitUpdate}
-                      className="btn btn-success"
-                    >
-                      Submit Update
-                    </button>
-                  </div>
-                )}
+    <div className="container-fluid d-flex justify-content-center">
+      <div className="container">
+        <h2>Schedule List</h2>
+        <div className="row">
+          {schedules.map((schedule) => (
+            <div key={schedule.id} className="col-md-4 mb-4">
+              <div className="card">
+                <div className="card-body">
+                  <h5 className="card-title">
+                    Class Name: {schedule.className}
+                  </h5>
+                  <p className="card-text">
+                    Date Limite of Schedule: {schedule.dateSchedule}
+                  </p>
+                  {schedule.imageSchedule && (
+                    <div>
+                      <strong>Image:</strong>
+                      <br />
+                      <img
+                        src={`data:image/jpeg;base64,${schedule.imageSchedule}`}
+                        alt="Schedule"
+                        className="card-img-top"
+                      />
+                    </div>
+                  )}
+                  <button
+                    onClick={() => handleUpdate(schedule)}
+                    className="btn btn-primary"
+                  >
+                    Update
+                  </button>
+                  <button
+                    onClick={() => handleDelete(schedule.id)}
+                    className="btn btn-danger"
+                  >
+                    Delete
+                  </button>
+                  {updateFormData.id === schedule.id && (
+                    <div>
+                      <input
+                        type="text"
+                        value={updateFormData.className}
+                        onChange={(e) =>
+                          setUpdateFormData({
+                            ...updateFormData,
+                            className: e.target.value,
+                          })
+                        }
+                        className="form-control mb-2"
+                      />
+                      <input
+                        type="text"
+                        value={updateFormData.dateSchedule}
+                        onChange={(e) =>
+                          setUpdateFormData({
+                            ...updateFormData,
+                            dateSchedule: e.target.value,
+                          })
+                        }
+                        className="form-control mb-2"
+                      />
+                      <input
+                        type="file"
+                        onChange={handleFileChange}
+                        className="form-control-file mb-2"
+                      />
+                      <button
+                        onClick={handleSubmitUpdate}
+                        className="btn btn-success"
+                      >
+                        Submit Update
+                      </button>
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );

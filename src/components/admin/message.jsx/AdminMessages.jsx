@@ -39,74 +39,47 @@ const AdminMessages = () => {
   }, []);
 
   return (
-    <div style={{ alignContent: "center" }}>
-      <div
-        class="messages"
-        style={{
-          border: "1px solid #ccc",
-          borderRadius: "8px",
-          maxHeight: "300px",
-          overflowY: "auto",
-          padding: "10px",
-          width: "300px",
-        }}
-      >
-        <h2>Messages</h2>
-        <ul>
-          {messages &&
-            messages
-              .sort((a, b) => a.id - b.id)
-              .map((message) => (
-                <li
-                  key={message.id}
-                  style={{
-                    maxWidth: "70%",
-                    padding: "8px",
-                    marginBottom: "8px",
-                    borderRadius: "8px",
-                    backgroundColor:
-                      message.senderId === username ? "#dcf8c6" : "#f1f0f0",
-                    alignSelf:
-                      message.senderId === username ? "flex-end" : "flex-start",
-                    textAlign: message.senderId === username ? "right" : "left",
-                    color: message.senderId === username ? "blue" : "red",
-                  }}
-                >
-                  {message.message}
-                </li>
-              ))}
-        </ul>
-      </div>
-
-      <div>
-        <form onSubmit={sendMessage} class="input-container">
-          <input
-            type="text"
-            value={messagess}
-            onChange={(e) => setMessagess(e.target.value)}
-            style={{
-              width: "300px",
-              padding: "8px",
-              borderRadius: "20px",
-              border: "1px solid #ccc",
-            }}
-            placeholder="Type a message..."
-          />
-          <button
-            type="submit"
-            style={{
-              width: "50px",
-              padding: "8px",
-              borderRadius: "50%",
-              border: "none",
-              backgroundColor: "#4caf50",
-              color: "white",
-              cursor: "pointer",
-            }}
-          >
-            Send
-          </button>
-        </form>
+    <div className="container mt-5">
+      <div className="row justify-content-center">
+        <div className="col-md-6">
+          <div className="card">
+            <div className="card-header">
+              <h2 className="mb-0">Messages</h2>
+            </div>
+            <div
+              className="card-body"
+              style={{ maxHeight: "300px", overflowY: "auto" }}
+            >
+              {messages &&
+                messages.map((message) => (
+                  <div
+                    key={message.id}
+                    className={`card my-2 ${
+                      message.senderId === username
+                        ? "bg-danger text-light"
+                        : "bg-primary text-light"
+                    }`}
+                  >
+                    <div className="card-body rounded-3">{message.message}</div>
+                  </div>
+                ))}
+            </div>
+            <div className="card-footer">
+              <form onSubmit={sendMessage} className="input-group">
+                <input
+                  type="text"
+                  value={messagess}
+                  onChange={(e) => setMessagess(e.target.value)}
+                  className="form-control"
+                  placeholder="Enter your message"
+                />
+                <button type="submit" className="btn btn-primary">
+                  Send
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

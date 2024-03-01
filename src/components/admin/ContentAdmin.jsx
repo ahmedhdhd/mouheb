@@ -5,6 +5,7 @@ import NoteForm from "./Note/NoteForm";
 import NoteList from "./Note/NoteList";
 import CreateUserForm from "./CreateUserForm";
 import UserList from "./UserList";
+import UniqueSendersList from "./message.jsx/UniqueSendersList";
 // import Sidebar from "./Sidebar";
 
 const ContentAdmin = ({ selectedItem }) => {
@@ -46,6 +47,12 @@ const ContentAdmin = ({ selectedItem }) => {
         return (
           <div>
             <UserList />
+          </div>
+        );
+      case "message":
+        return (
+          <div>
+            <UniqueSendersList />
           </div>
         );
       default:

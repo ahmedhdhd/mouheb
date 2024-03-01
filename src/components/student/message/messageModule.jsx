@@ -1,9 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 
 const MessageModule = ({ username }) => {
   const [messages, setMessages] = useState([]);
   const [messagess, setMessagess] = useState("");
+  const messagesEndRef = useRef(null);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
 
   const sendMessage = async () => {
     try {
@@ -34,37 +39,52 @@ const MessageModule = ({ username }) => {
     fetchMessages();
   }, []);
 
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages]); // Scroll to bottom when messages change
+
   return (
-    <div>
-      <div>
-        <h2>Messages</h2>
-        <ul>
+    <div className="container mt-5 d-flex justify-content-center">
+      <div className="card col-md-6">
+        <div className="card-header">
+          <h2 className="mb-0">Messages</h2>
+        </div>
+        <div
+          className="card-body p-0"
+          style={{ overflowY: "auto", maxHeight: "300px" }}
+        >
           {messages &&
             messages
-              .sort((a, b) => a.id - b.id) // Sort messages by id
+              .sort((a, b) => a.id - b.id)
               .map((message) => (
-                <li
-                  key={message.id}
-                  style={{
-                    textAlign: message.senderId === username ? "left" : "right",
-                    color: message.senderId === username ? "red" : "blue",
-                  }}
-                >
-                  {message.message}
-                </li>
+                <div key={message.id} className="card my-2">
+                  <div
+                    className={`card-body ${
+                      message.senderId === username
+                        ? "bg-danger text-light"
+                        : "bg-primary text-light"
+                    } rounded-3`}
+                  >
+                    {message.message}
+                  </div>
+                </div>
               ))}
-        </ul>
-      </div>
-
-      <div>
-        <form onSubmit={sendMessage}>
-          <input
-            type="text"
-            value={messagess}
-            onChange={(e) => setMessagess(e.target.value)}
-          />
-          <button type="submit">Send</button>{" "}
-        </form>
+          <div ref={messagesEndRef} />
+        </div>
+        <div className="card-footer">
+          <form onSubmit={sendMessage} className="input-group">
+            <input
+              type="text"
+              value={messagess}
+              onChange={(e) => setMessagess(e.target.value)}
+              className="form-control"
+              placeholder="Enter your message"
+            />
+            <button type="submit" className="btn btn-primary">
+              Send
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   );
