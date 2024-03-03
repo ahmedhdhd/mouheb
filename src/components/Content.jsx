@@ -83,7 +83,6 @@ const Content = ({ selectedItem }) => {
         );
     }
   };
-
   return <div>{renderContent()}</div>;
 };
 

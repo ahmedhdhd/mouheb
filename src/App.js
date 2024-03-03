@@ -11,7 +11,7 @@ import Side from './components/admin/Side';
 import SideStudent from './components/student/Side';
 
 function App() {
-  return ( 
+  return (
     <BrowserRouter>
       <div>
         <Switch>
